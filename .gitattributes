@@ -1,1 +1,23 @@
+# Enforce LF for all text files
+* text=auto eol=lf
+
+# JavaScript / TypeScript
+*.js  text eol=lf
+*.jsx text eol=lf
+*.ts  text eol=lf
+*.tsx text eol=lf
+
+# JSON / YAML / Markdown
+*.json text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+*.md   text eol=lf
+
+# Shell scripts (Linux/macOS) → must use LF
+*.sh text eol=lf
+
+# Batch / PowerShell scripts (Windows) → CRLF
+*.bat text eol=crlf
+*.cmd text eol=crlf
+*.ps1 text eol=crlf
 * text eol=lf
