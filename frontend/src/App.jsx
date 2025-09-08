@@ -90,9 +90,12 @@ function App() {
     setCurrentView('about');
   };
 
-  const handleBookingClick = () => {
+  const handleBookingClick = (car) => {
     setCurrentView('booking');
+    setSelectedCar(car);
   };
+
+  const [selectedCar, setSelectedCar] = React.useState(null);
 
   // Show loading spinner while app is loading
   if (isLoading) {
@@ -131,7 +134,7 @@ function App() {
       <div className="app">
         <Navbar onLoginClick={handleLoginClick} onRegisterClick={handleRegisterClick} onAboutClick={handleAboutClick} onBookingClick={handleBookingClick} currentView={currentView} />
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '100vh', padding: '2rem' }}>
-          <Booking onHomeClick={handleHomeClick} />
+          <Booking onHomeClick={handleHomeClick} selectedCar={selectedCar} />
         </div>
       </div>
     );

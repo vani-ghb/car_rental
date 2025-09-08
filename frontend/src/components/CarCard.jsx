@@ -64,7 +64,7 @@ const CarCard = ({ car, onRentNowClick }) => {
           disabled={!isAvailable}
           onClick={() => {
             if (isAvailable && onRentNowClick) {
-              onRentNowClick();
+              onRentNowClick(car);
             }
           }}
         >
