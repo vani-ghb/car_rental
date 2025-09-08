@@ -6,16 +6,29 @@
   top: 0;
   width: 100%;
   z-index: 1000;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 20px lightblue(18, 167, 169, 0.1);
 }
 
 .navbar-container {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 0.5rem;
+  }
 }
 
 .navbar-logo {
@@ -62,7 +75,7 @@
 
 .navbar-link:hover {
   color: #3498db;
-  background: rgba(52, 152, 219, 0.1);
+  background: lightpink(52, 152, 219, 0.1);
 }
 
 .navbar-link::after {
@@ -84,7 +97,7 @@
 
 .navbar-link.active {
   color: #e74c3c;
-  background: rgba(231, 76, 60, 0.1);
+  background:blue;
 }
 
 .login-item,

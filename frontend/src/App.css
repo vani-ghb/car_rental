@@ -26,10 +26,11 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  color: lightpink;
+  color: #333;
   background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  padding-top: 70px; /* Account for fixed navbar */
 }
 
 .app {
@@ -51,11 +52,25 @@ body {
 
 /* Perfect Centering for All Containers */
 .container {
+  width: 100%;
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
-  width: 100%;
   position: relative;
+  box-sizing: border-box;
+}
+
+/* Ensure full width on all screen sizes */
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 0.5rem;
+  }
 }
 
 /* Hero Section - Professional Car Rental Design */
