@@ -203,3 +203,32 @@
     height: 180px;
   }
 }
+
+/* Additional media queries for smaller devices */
+@media (max-width: 480px) {
+  .car-card {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .car-image-container {
+    height: 150px;
+  }
+
+  .car-name {
+    font-size: 1rem;
+  }
+
+  .car-price {
+    font-size: 1.1rem;
+  }
+
+  .detail-item {
+    font-size: 0.8rem;
+  }
+
+  .feature-tag {
+    font-size: 0.6rem;
+    padding: 0.15rem 0.5rem;
+  }
+}

@@ -136,6 +136,21 @@
   }
 }
 
+@media (max-width: 768px) {
+  .login-form {
+    padding: 2.5rem;
+    max-width: 350px;
+  }
+
+  .login-title {
+    font-size: 1.8rem;
+  }
+
+  .login-container {
+    padding: 1rem;
+  }
+}
+
 @media (max-width: 480px) {
   .login-form {
     padding: 2rem;

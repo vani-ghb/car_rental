@@ -33,6 +33,14 @@
 }
 
 /* Responsive adjustments */
+@media (max-width: 768px) {
+  .loading-spinner {
+    width: 55px;
+    height: 55px;
+    border-width: 3.5px;
+  }
+}
+
 @media (max-width: 480px) {
   .loading-spinner {
     width: 50px;

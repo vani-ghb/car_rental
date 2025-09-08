@@ -126,6 +126,21 @@
   }
 }
 
+@media (max-width: 768px) {
+  .register-form {
+    padding: 2.5rem;
+    max-width: 400px;
+  }
+
+  .register-title {
+    font-size: 1.8rem;
+  }
+
+  .register-container {
+    padding: 1rem;
+  }
+}
+
 @media (max-width: 480px) {
   .register-form {
     padding: 2rem;

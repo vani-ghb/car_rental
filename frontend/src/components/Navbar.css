@@ -124,27 +124,81 @@
   transform: translateY(-2px);
 }
 
+@media (max-width: 1024px) {
+  .navbar-container {
+    padding: 0 1.5rem;
+  }
+
+  .navbar-menu {
+    gap: 1.5rem;
+  }
+
+  .logo-text {
+    font-size: 1.3rem;
+  }
+
+  .navbar-link {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.95rem;
+  }
+
+  .login-button,
+  .register-button {
+    padding: 7px 14px;
+    font-size: 0.95rem;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar-container {
     padding: 0 1rem;
   }
-  
+
   .navbar-menu {
     gap: 1rem;
   }
-  
+
   .logo-text {
     font-size: 1.2rem;
   }
-  
+
   .navbar-link {
     padding: 0.5rem;
     font-size: 0.9rem;
   }
-  
+
   .login-button,
   .register-button {
     padding: 6px 12px;
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 0.5rem;
+  }
+
+  .navbar-menu {
+    gap: 0.5rem;
+  }
+
+  .logo-text {
+    font-size: 1rem;
+  }
+
+  .navbar-link {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+  }
+
+  .login-button,
+  .register-button {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+  }
+
+  .logo-emoji {
+    font-size: 1.5rem;
   }
 }
