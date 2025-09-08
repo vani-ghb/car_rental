@@ -143,24 +143,6 @@ bookingSchema.index({ car: 1, startDate: 1, endDate: 1 });
 bookingSchema.index({ status: 1, startDate: 1 });
 bookingSchema.index({ createdAt: -1 });
 
-// Pre-save middleware to calculate total days and amount
-bookingSchema.pre('save', async function(next) {
-  if (this.isModified('startDate') || this.isModified('endDate')) {
-    const start = new Date(this.startDate);
-    const end = new Date(this.endDate);
-    const diffTime = Math.abs(end - start);
-    this.totalDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-    // Get car price and calculate total
-    const Car = mongoose.model('Car');
-    const car = await Car.findById(this.car);
-    if (car) {
-      this.totalAmount = (car.pricePerDay * this.totalDays) + this.insurance.cost;
-    }
-  }
-  next();
-});
-
 // Virtual for booking duration
 bookingSchema.virtual('duration').get(function() {
   return `${this.totalDays} day${this.totalDays > 1 ? 's' : ''}`;

@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 // Test script to verify CRUD operations for all models
 async function testCRUDOperations() {
@@ -6,7 +7,7 @@ async function testCRUDOperations() {
     console.log('🔍 Testing CRUD Operations...\n');
 
     // Connect to MongoDB
-    await mongoose.connect('mongodb://localhost:27017/car-rental', {
+    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/car-rental', {
       useNewUrlParser: true,
       useUnifiedTopology: true
     });
@@ -125,6 +126,7 @@ async function testCRUDOperations() {
       car: bookingCar._id,
       startDate: new Date('2024-02-01'),
       endDate: new Date('2024-02-05'),
+      totalDays: 4,
       pickupLocation: 'Airport',
       returnLocation: 'Airport',
       driverInfo: {

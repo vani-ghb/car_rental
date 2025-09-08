@@ -26,7 +26,7 @@ const Login = ({ onRegisterClick, onLoginSuccess }) => {
 
     try {
       // Direct fetch implementation
-      const response = await fetch('http://localhost:5000/api/auth/login', {
+      const response = await fetch('https://car-rental-1-jo1o.onrender.com/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

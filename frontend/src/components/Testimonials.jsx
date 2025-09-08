@@ -34,6 +34,14 @@ const Testimonials = () => {
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
       rating: 5,
       feedback: "Best car rental experience I've ever had. Transparent pricing, no hidden fees, and the vehicle was exactly as described. Highly recommended!"
+    },
+    {
+      id: 5,
+      name: "Lisa Park",
+      location: "Seattle, WA",
+      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&q=80",
+      rating: 5,
+      feedback: "Incredible attention to detail and customer care. The vehicle was immaculate and the pickup/drop-off process was seamless. Will definitely rent again!"
     }
   ];
 

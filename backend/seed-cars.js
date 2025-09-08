@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 const Car = require('./models/Car');
 
 // Car data to seed into database
@@ -110,7 +111,7 @@ const carsData = [
 async function seedCars() {
   try {
     // Connect to MongoDB
-    await mongoose.connect('mongodb://localhost:27017/car-rental', {
+    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/car-rental', {
       useNewUrlParser: true,
       useUnifiedTopology: true
     });

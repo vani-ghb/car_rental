@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+require('dotenv').config();
 
 // Test script to check database status and existing data
 async function checkDatabaseStatus() {
@@ -6,7 +7,7 @@ async function checkDatabaseStatus() {
     console.log('🔍 Checking Database Status...\n');
 
     // Connect to MongoDB
-    await mongoose.connect('mongodb://localhost:27017/car-rental', {
+    await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/car-rental', {
       useNewUrlParser: true,
       useUnifiedTopology: true
     });

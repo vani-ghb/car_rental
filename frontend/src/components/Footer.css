@@ -1,13 +1,14 @@
 .footer {
   background: #1a1a2e; /* Dark blue background */
   color: #ffffff; /* White text */
-  margin-top: 4rem;
+  margin-top: 0;
+  width: 100%;
 }
 
 .footer .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 1rem;
 }
 
 
@@ -17,7 +18,7 @@
   display: grid;
   grid-template-columns: 2fr 1fr 1fr 1fr;
   gap: 2rem;
-  padding: 3rem 0;
+  padding: 2rem 0;
 }
 
 .footer-section h4 {
@@ -131,7 +132,7 @@
 /* Footer Bottom */
 .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 2rem 0;
+  padding: 1rem 0;
 }
 
 .footer-bottom-content {
