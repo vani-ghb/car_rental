@@ -25,17 +25,14 @@ const Booking = ({ onHomeClick, selectedCar, onClose }) => {
   const [error, setError] = useState(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
 
   useEffect(() => {
-    // Check authentication status
     const token = localStorage.getItem('token');
     setIsAuthenticated(!!token);
 
     if (selectedCar) {
       setCar(selectedCar);
     } else {
-      // Load available cars when no specific car is selected
       loadAvailableCars();
     }
   }, [selectedCar]);
@@ -43,28 +40,21 @@ const Booking = ({ onHomeClick, selectedCar, onClose }) => {
   const loadAvailableCars = async () => {
     setLoadingCars(true);
     try {
-      // Try to fetch from API first
       const response = await carsAPI.getCars();
       setAvailableCars(response.cars || []);
-    } catch (error) {
-      console.error('Error loading cars from API:', error);
-      // Fallback to dummy data
+    } catch (err) {
+      console.error('Error loading cars from API:', err);
       setAvailableCars(dummyCarsData);
     } finally {
       setLoadingCars(false);
     }
   };
 
-  const handleCarSelect = (selectedCar) => {
-    setCar(selectedCar);
-  };
+  const handleCarSelect = (selectedCar) => setCar(selectedCar);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
@@ -79,14 +69,12 @@ const Booking = ({ onHomeClick, selectedCar, onClose }) => {
       return;
     }
 
-    // Check authentication before proceeding
     if (!isAuthenticated) {
       setError('You must be logged in to create a booking. Please login first.');
       setIsSubmitting(false);
       return;
     }
 
-    // Prepare booking data
     const bookingData = {
       car: car._id,
       startDate: formData.startDate,
@@ -125,7 +113,7 @@ const Booking = ({ onHomeClick, selectedCar, onClose }) => {
         insuranceCost: 0
       });
     } catch (err) {
-      setError(err.message || 'Failed to create booking.');
+      setError(err.response?.data?.message || err.message || 'Failed to create booking.');
     } finally {
       setIsSubmitting(false);
     }
@@ -172,7 +160,6 @@ const Booking = ({ onHomeClick, selectedCar, onClose }) => {
     );
   }
 
-  // Show booking form with selected car details
   return (
     <div className="booking-container">
       <div className="selected-car-summary">
@@ -193,10 +180,7 @@ const Booking = ({ onHomeClick, selectedCar, onClose }) => {
               <span>{car.location}</span>
             </div>
           </div>
-          <button
-            className="change-car-button"
-            onClick={() => setCar(null)}
-          >
+          <button className="change-car-button" onClick={() => setCar(null)}>
             Change Car
           </button>
         </div>
@@ -211,6 +195,7 @@ const Booking = ({ onHomeClick, selectedCar, onClose }) => {
       )}
 
       <form className="booking-form" onSubmit={handleSubmit}>
+        {/* Booking Details */}
         <div className="form-section">
           <h2>Booking Details</h2>
           <div className="form-row">
@@ -235,6 +220,7 @@ const Booking = ({ onHomeClick, selectedCar, onClose }) => {
           </div>
         </div>
 
+        {/* Driver Information */}
         <div className="form-section">
           <h2>Driver Information</h2>
           <div className="form-row">
@@ -263,6 +249,7 @@ const Booking = ({ onHomeClick, selectedCar, onClose }) => {
           </div>
         </div>
 
+        {/* Additional Information */}
         <div className="form-section">
           <h2>Additional Information</h2>
           <div className="form-group">

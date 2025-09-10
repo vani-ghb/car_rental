@@ -20,29 +20,36 @@ const Login = ({ onRegisterClick, onLoginSuccess }) => {
     if (error) setError('');
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setError('');
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsLoading(true);
+  setError('');
 
-    try {
-      const response = await authAPI.login(loginData.email, loginData.password);
-      console.log('Login successful:', response);
+  try {
+        alert('Login successful');
+    const response = await authAPI.login(loginData.email, loginData.password);
+    
+    // Show alert for successful login
 
-      // Call the success callback if provided
-      if (onLoginSuccess) {
-        onLoginSuccess(response.user);
-      }
 
-      // Reset form
-      setLoginData({ email: '', password: '' });
-    } catch (error) {
-      console.error('Login error:', error);
-      setError(error.message || 'Login failed. Please try again.');
-    } finally {
-      setIsLoading(false);
+    // Call the success callback if provided
+    if (onLoginSuccess) {
+      onLoginSuccess(response.user);
     }
-  };
+
+    // Navigate to homepage
+    window.location.href = '/'; // replace '/' with your homepage route if different
+
+    // Reset form
+    setLoginData({ email: '', password: '' });
+  } catch (error) {
+    console.error('Login error:', error);
+    setError(error.message || 'Login failed. Please try again.');
+  } finally {
+    setIsLoading(false);
+  }
+};
+
 
   return (
     <div className="login-container">

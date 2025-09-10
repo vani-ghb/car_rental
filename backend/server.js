@@ -1,4 +1,3 @@
-
 // Essential MERN Stack Backend Imports
 // Additional imports for socket.io
 const http = require('http');
@@ -92,7 +91,7 @@ const errorHandler = require('./middleware/errorHandler');
 // Routes imports
 const authRoutes = require('./routes/auth');
 const carRoutes = require('./routes/cars');
-const bookingRoutes = require('./routes/bookings');
+const bookingRoutes = require('./routes/booking'); // ✅ Added booking routes
 const userRoutes = require('./routes/users');
 const paymentRoutes = require('./routes/payments');
 const reviewRoutes = require('./routes/reviews');
@@ -101,7 +100,7 @@ const adminRoutes = require('./routes/admin');
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/cars', carRoutes);
-app.use('/api/bookings', bookingRoutes);
+app.use('/api/bookings', bookingRoutes); // ✅ Booking route registered
 app.use('/api/users', userRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/reviews', reviewRoutes);
@@ -117,7 +116,7 @@ app.use(errorHandler);
 
 // 404 handler
 app.use('*', (req, res) => {
-  res.status(404).json({ message: 'Route not ' });
+  res.status(404).json({ message: 'Route not found' });
 });
 
 // Start server using HTTP server for socket.io

@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import { authAPI } from '../services/api';
+// import { useNavigate } from 'react-router-dom'; // import for navigation
 import './Login-new.css';
 
 const Login = ({ onRegisterClick, onLoginSuccess }) => {
+  // const navigate=useNavigate()
+
+
   const [loginData, setLoginData] = useState({
     email: '',
     password: ''
@@ -16,7 +20,6 @@ const Login = ({ onRegisterClick, onLoginSuccess }) => {
       ...prev,
       [name]: value
     }));
-    // Clear error when user starts typing
     if (error) setError('');
   };
 
@@ -33,6 +36,12 @@ const Login = ({ onRegisterClick, onLoginSuccess }) => {
       if (onLoginSuccess) {
         onLoginSuccess(response.user);
       }
+
+      // Show alert
+      alert('Login successful');
+
+      // Navigate to homepage
+      // navigate('/');
 
       // Reset form
       setLoginData({ email: '', password: '' });
